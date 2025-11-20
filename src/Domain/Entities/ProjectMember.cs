@@ -1,3 +1,5 @@
+using EnterpriseTaskManagement.Domain.Enums;
+
 namespace EnterpriseTaskManagement.Domain.Entities;
 
 public class ProjectMember : BaseEntity

@@ -1,10 +1,13 @@
+using EnterpriseTaskManagement.Domain.Enums;
+
+
 namespace EnterpriseTaskManagement.Domain.Entities;
 
 public class Project : BaseEntity
 {
     public string Name { get; set; } = string.Empty;
     public string Description { get; set; } = string.Empty;
-    public string Code { get; set; } //Proje Kodu
+    public string Code { get; set; } = string.Empty; //Proje Kodu
     public DateTime StartDate { get; set; }
     public DateTime? EndDate { get; set; }
     public ProjectStatus Status { get; set; }

@@ -1,4 +1,4 @@
-using System.Globalization;
+using EnterpriseTaskManagement.Domain.Enums;
 
 namespace EnterpriseTaskManagement.Domain.Entities;
 
@@ -9,10 +9,10 @@ public class ProjectTask : BaseEntity
     public Guid ProjectId { get; set; }
     public Guid AssignedToId { get; set; } // Kime atandı
     public Guid? ParentTaskId { get; set; } //Alt görev için
-    public TaskStatus Status { get; set; }
+    public EnterpriseTaskManagement.Domain.Enums.TaskStatus Status { get; set; }
     public TaskPriority Priority { get; set; }
-    public DateTime DueDate { get; set; } // Bitiş tarihi
-    public DateTime ComletedDate { get; set; }
+    public DateTime? DueDate { get; set; } // Bitiş tarihi
+    public DateTime? ComletedDate { get; set; }
     public int EstimatedHours { get; set; }
     public int ActualHours { get; set; }
     public string? Tags { get; set; } // Etiketler
