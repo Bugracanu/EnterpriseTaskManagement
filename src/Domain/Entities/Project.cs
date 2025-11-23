@@ -13,7 +13,7 @@ public class Project : BaseEntity
     public ProjectStatus Status { get; set; }
     public ProjectPriority Priority { get; set; }
     public decimal Budget { get; set; }
-    public Guid ManagerId { get; set; } //Proje Yöneticisi
+    public Guid? ManagerId { get; set; } //Proje Yöneticisi
 
     //Navigation Properties
     public User? Manager { get; set; }
