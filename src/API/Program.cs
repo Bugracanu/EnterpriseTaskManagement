@@ -1,18 +1,14 @@
-using EnterpriseTaskManagement.Infrastructure.Data;
-using Microsoft.EntityFrameworkCore;
-using Microsoft.Extensions.Options;
+using EnterpriseTaskManagement.API.Extensions;
 
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
-
 builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
-//Database Configuration
-builder.Services.AddDbContext<ApplicationDbContext>(options => 
-options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
+// Application Services (Database + Repositories)
+builder.Services.AddApplicationServices(builder.Configuration);
 
 var app = builder.Build();
 
