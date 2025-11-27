@@ -1,9 +1,8 @@
-using EnterpriseTaskManagement.Domain.Entities;
 using EnterpriseTaskManagement.Domain.Interfaces;
 using EnterpriseTaskManagement.Infrastructure.Data;
 using EnterpriseTaskManagement.Infrastructure.Repositories;
 using Microsoft.EntityFrameworkCore;
-using Microsoft.Extensions.Options;
+using System.Reflection;
 
 namespace EnterpriseTaskManagement.API.Extensions;
 
@@ -20,6 +19,9 @@ public static class ServiceCollectionExtensions
         services.AddScoped<IProjectRepository, ProjectRepository>();
         services.AddScoped<IProjectTaskRepository, ProjectTaskRepository>();
         services.AddScoped<IProjectMemberRepository, ProjectMemberRepository>();
+
+        // MediatR - CQRS pattern
+        services.AddMediatR(cfg => cfg.RegisterServicesFromAssembly(Assembly.Load("EnterpriseTaskManagement.Application")));
 
         return services;
         
